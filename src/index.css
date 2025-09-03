@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+/* neutral page shell — App.jsx controls layout */
+html, body, #root { height: 100%; }
+body { margin: 0; display: block; background-color: #0f1115; }
+#root { width: 100%; min-height: 100%; }
+
+/* (optional) smoother text */
+* { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
