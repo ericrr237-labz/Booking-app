@@ -52,6 +52,22 @@ app.post("/api/admin/login", (req, res) => {
 });
 
 
+app.post('/api/bookings', async (req, res) => {
+  try {
+    const { name, phone, email, service, datetime, notes } = req.body;
+
+    if (!name || !phone || !service || !datetime) {
+      return res.status(400).json({ ok: false, error: 'missing_fields' });
+    }
+
+    // TODO: Save to your DB here
+    res.json({ ok: true, message: 'Booking created successfully!' });
+  } catch (err) {
+    console.error('[POST /api/bookings] error:', err);
+    res.status(500).json({ ok: false, error: 'booking_failed' });
+  }
+});
+
 // Health check
 app.get("/", (_req, res) => {
   res.json({ ok: true, service: "booking-api" });
